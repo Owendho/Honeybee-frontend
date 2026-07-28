@@ -23,45 +23,31 @@ function App() {
   return (
     <>
       <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+
         <div>
           <h1>Product List</h1>
           <Catalogue pageNumber={pageNumber} />
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
         </div>
-         <button
-          type="button"
-          className="right-page"
-          onClick={() => setPageNumber((nextPage) => nextPage + 1)}
-        >
-          Next page is {pageNumber+1}
-        </button>
-        <button
-          type="button"
-          className="left-page"
-          onClick={() => setPageNumber((nextPage) => nextPage - 1)}
-        >
-          Previous page is {pageNumber - 1}
-        </button>
+        <div className="pagination-buttons">
+          <button
+            type="button"
+            className="left-page"
+            onClick={() => setPageNumber((nextPage) => nextPage - 1)}
+            disabled={pageNumber <= 1}
+          >
+            Previous page is {pageNumber - 1}
+          </button>
+          <button
+            type="button"
+            className="right-page"
+            onClick={() => setPageNumber((nextPage) => nextPage + 1)}
+          >
+            Next page is {pageNumber+1}
+          </button>
+
+
+        </div>
+
       </section>
 
       <div className="ticks"></div>
