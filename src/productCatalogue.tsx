@@ -24,11 +24,22 @@ interface CatalogueProps{
     pageNumber: number;
 }
 
-export default function Catalogue({pageNumber}: CatalogueProps) {
-    const products = useProductCatalogue(pageNumber); //gets specified page of products.
-    const listItems = products?.map((product) => (<li key={product.id}> {product.title} </li>)) ?? [];
-    
-    return(
-        <ul>{listItems}</ul>
-    )
+export default function Catalogue({ pageNumber }: CatalogueProps) {
+  const products = useProductCatalogue(pageNumber); // gets specified page of products.
+
+  const listItems =
+    products?.map((product) => (
+      <li key={product.id} className="product-item">
+        <img
+          src={product.image}
+          alt={product.title}
+          width="100"
+          height="100"
+          style={{ objectFit: 'contain' }}
+        />
+        <span>{product.title}</span>
+      </li>
+    )) ?? [];
+
+  return <ul className="product-grid">{listItems}</ul>;
 }

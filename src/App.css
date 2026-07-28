@@ -46,6 +46,11 @@
   }
 }
 
+.left-page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .right-page{
   padding: 5px 10px;
   border-radius: 5px;
@@ -60,6 +65,22 @@
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
+}
+
+.prduct-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .hero {
